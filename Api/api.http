@@ -1,4 +1,4 @@
-GET http://localhost:1234/movies
+# GET http://localhost:1234/movies
 
 # //recuperar un pelicula por id
 # GET http://localhost:1234/movies/5ad1a235-0d9c-410a-b32b-220d91689a08
@@ -10,16 +10,7 @@ POST  http://localhost:1234/movies
 Content-Type: application/json
 
 {
-    "title": "JHON WICK",
-    "year": 1999,
-    "director": "kevin Cruz",
-    "duration": 152,
-    "poster": "https://i.ebayimg.com/images/g/yokAAOSw8w1YARbm/s-l1200.jpg",
-    "genre": [
-      "Action",
-      "Crime",
-      "Drama"
-    ],
-    "rate": 9
+    "title": 1,
+    "year": "PEPOTE"
 
 }

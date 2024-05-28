@@ -39,44 +39,17 @@ app.get('/movies/:id',(req, res)=>{
 })
 
 app.post('/movies' ,(req, res)=>{
-    const movieShema = z.object({
-        title: z.string({
-            invalid_type_error: 'movie title must be a string',
-            required_error: ' movie title is requiered'
-        }),
-        year:z.number().int().min(1900).max(2024),
-        director: z.string(),
-        duration: z.number().int().positive(),
-        rate: z.number().min(0).max(10),
-        poster: z.string().url({
-            message: 'Poster must be a valid URL'
-        }),
-        GENRE: z.array(z.enum(
-        ['Action','Adventure','Comedy','Drama','Fantasy','Horror','Thriller','Sci-Fi'],{
-            required_error: 'movie gnre is requerid',
-            invalid_type_error: 'movie erqueride'
-        }
-        ))
 
-    })
-    const { title,
-            genre,
-            year,
-            director,
-            duration,
-            rate,
-            poster
-    } = req.body
+    const result = validarMovie(req.body)
 
+    if (resultado.error) {
+
+        return res.status(400).json({ error: JSON.parse(result.error.message) })
+    }
+ 
     const newMovie = {
         id: crypto.randomUUID(),
-        title,
-            genre,
-            year,
-            director,
-            duration,
-            rate : rate ?? 0,
-            poster
+        ...result.data
     }
 
 
