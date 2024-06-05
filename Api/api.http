@@ -6,11 +6,19 @@
 //validar por el genero 
 # GET  http://localhost:1234/movies?genre=action
 
-POST  http://localhost:1234/movies
+# POST  http://localhost:1234/movies
+# Content-Type: application/json
+
+# {
+#     "title": 1,
+#     "year": "PEPOTE"
+
+# }
+
+PATCH  http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
 Content-Type: application/json
 
 {
-    "title": 1,
-    "year": "PEPOTE"
-
+    "title":"hola",
+    "year": 1995
 }
